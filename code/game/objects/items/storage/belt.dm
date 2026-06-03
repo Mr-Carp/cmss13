@@ -125,7 +125,7 @@
 
 /obj/item/storage/belt/utility/construction
 	name = "\improper M277 pattern construction rig"
-	desc = "The M277 is a common rig used by Combat Technicians to carry around materials and other supplies. It consists of a modular belt with various clips. This version sarafices storage space for specialized material loading clips."
+	desc = "The M277 is a common rig used by Combat Technicians to carry around materials and other supplies. It consists of a modular belt with various clips. This version sacrifices storage space for specialized material loading clips."
 	storage_slots = 6
 	can_hold = list(
 		/obj/item/tool/crowbar,
@@ -1070,6 +1070,20 @@
 	for(var/i in 1 to storage_slots)
 		new /obj/item/ammo_magazine/handful/shotgun/heavy/slug(src)
 
+/obj/item/storage/belt/shotgun/black/es7_mixed/fill_preset_inventory()
+	for(var/i in 1 to (storage_slots/2))
+		new /obj/item/ammo_magazine/handful/shotgun/slug/es7(src)
+	for(var/i in 1 to (storage_slots/2))
+		new /obj/item/ammo_magazine/handful/shotgun/beanbag/es7(src)
+
+/obj/item/storage/belt/shotgun/black/es7_stun/fill_preset_inventory()
+	for(var/i in 1 to storage_slots)
+		new /obj/item/ammo_magazine/handful/shotgun/beanbag/es7(src)
+
+/obj/item/storage/belt/shotgun/black/es7_lethal/fill_preset_inventory()
+	for(var/i in 1 to storage_slots)
+		new /obj/item/ammo_magazine/handful/shotgun/slug/es7(src)
+
 /obj/item/storage/belt/shotgun/van_bandolier
 	name = "two bore bandolier"
 	desc = "A leather bandolier designed to hold extremely heavy shells. Can be attached to armor, worn over the back, or attached to belt loops."
@@ -1263,7 +1277,7 @@
 
 /obj/item/storage/belt/grenade/large
 	name="\improper M276 pattern M40 Grenade rig Mk. II"
-	desc="The M276 Mk. II is is an upgraded version of the M276 grenade rig, with more storage capacity."
+	desc="The M276 Mk. II is an upgraded version of the M276 grenade rig, with more storage capacity."
 	storage_slots = 18
 	max_storage_space = 54
 
@@ -1327,13 +1341,6 @@
 	else
 		return ..()
 
-/obj/item/storage/belt/grenade/bugkiller
-
-/obj/item/storage/belt/grenade/bugkiller/fill_preset_inventory()
-	new /obj/item/explosive/grenade/custom/antiweed(src)
-	new /obj/item/explosive/grenade/custom/antiweed(src)
-	new /obj/item/explosive/grenade/custom/antiweed(src)
-
 ////////////////////////////// GUN BELTS /////////////////////////////////////
 
 /obj/item/storage/belt/gun
@@ -1352,7 +1359,7 @@
 	max_w_class = SIZE_MEDIUM
 	storage_flags = STORAGE_FLAGS_POUCH|STORAGE_ALLOW_QUICKDRAW
 	///Array of holster slots and stats to use for them. First layer is "1", "2" etc. Guns are stored in both the slot and the holstered_guns list which keeps track of which was last inserted.
-	var/list/obj/item/weapon/gun/holster_slots = list(
+	var/list/list/obj/item/weapon/gun/holster_slots = list(
 		"1" = list(
 			"gun" = null,
 			"underlay_sprite" = null,
@@ -1587,6 +1594,7 @@
 	cant_hold = list(
 		/obj/item/weapon/gun/pistol/smart,
 		/obj/item/ammo_magazine/pistol/smart,
+		/obj/item/weapon/gun/pistol/m10, //Has it's own holster
 		/obj/item/weapon/gun/pistol/kt42, // HONKed currently
 		/obj/item/weapon/gun/pistol/auto9, // HONKed currently
 		/obj/item/weapon/gun/pistol/chimp, // HONKed currently
@@ -1728,6 +1736,15 @@
 	new /obj/item/ammo_magazine/pistol/heavy/super/highimpact/ap(src)
 	new /obj/item/ammo_magazine/pistol/heavy/super/highimpact/ap(src)
 
+/obj/item/storage/belt/gun/m4a3/heavy/co_golden
+	icon = 'icons/obj/items/clothing/belts/belts_by_map/snow.dmi'
+	item_icons = list(
+		WEAR_WAIST = 'icons/mob/humans/onmob/clothing/belts/belts_by_map/snow.dmi',
+		WEAR_L_HAND = 'icons/mob/humans/onmob/inhands/items_by_map/snow_lefthand.dmi',
+		WEAR_R_HAND = 'icons/mob/humans/onmob/inhands/items_by_map/snow_righthand.dmi'
+	)
+	flags_atom = FPRINT|NO_GAMEMODE_SKIN // same sprite for all gamemodes
+
 /obj/item/storage/belt/gun/m4a3/heavy/co_golden/fill_preset_inventory()
 	handle_item_insertion(new /obj/item/weapon/gun/pistol/heavy/co/gold())
 	new /obj/item/ammo_magazine/pistol/heavy/super/highimpact(src)
@@ -1836,14 +1853,12 @@
 	for(var/i = 1 to storage_slots - 1)
 		new /obj/item/ammo_magazine/smg/m39/ap(src)
 
-#define MAXIMUM_MAGAZINE_COUNT 2
-
 /obj/item/storage/belt/gun/m10
 	name = "\improper M276 pattern M10 holster rig"
-	desc = "Special issue variant of the M276 - designed exclusively to securely hold a M10 Auto Pistol and seven spare magazines, allowing quick access in close-quarters situations. Ideal for defending against boarding threats, this belt supports rapid deployment of high-rate sidearms while maintaining stability in zero-G environments."
+	desc = "Special issue variant of the M276 - designed exclusively to securely hold an M10 Auto Pistol and three spare magazines, allowing quick access in close-quarters situations. Ideal for defending against boarding threats, this belt supports rapid deployment of high-rate sidearms while maintaining stability in zero-G environments."
 	icon_state = "m10_armor"
 	flags_atom = FPRINT // has gamemode skin
-	storage_slots = 8
+	storage_slots = 4
 	max_w_class = 5
 	gun_has_gamemode_skin = TRUE
 	can_hold = list(
@@ -1870,6 +1885,7 @@
 	for(var/i = 1 to storage_slots - 1)
 		new /obj/item/ammo_magazine/pistol/m10/drum(src)
 
+#define MAXIMUM_MAGAZINE_COUNT 2
 
 /obj/item/storage/belt/gun/xm51
 	name = "\improper M276 pattern XM51 holster rig"
@@ -1939,13 +1955,14 @@
 #undef MAXIMUM_MAGAZINE_COUNT
 
 /obj/item/storage/belt/gun/m44
-	name = "\improper M276 pattern general revoler holster rig"
+	name = "\improper M276 pattern general revolver holster rig"
 	desc = "The M276 is the standard load-bearing equipment of the USCM. It consists of a modular belt with various clips. This version is universal and adjustable for different revolvers, along with six small pouches for speedloaders. It smells faintly of hay."
 	icon_state = "m44r_holster"
 	storage_slots = 7
 	can_hold = list(
 		/obj/item/weapon/gun/revolver,
 		/obj/item/ammo_magazine/revolver,
+		/obj/item/ammo_magazine/handful/revolver,
 	)
 	flags_atom = FPRINT // has gamemode skin
 	holster_slots = list(
@@ -2071,7 +2088,7 @@
 
 /obj/item/storage/belt/gun/mateba
 	name = "\improper M276 pattern Unica holster rig"
-	desc = "The M276 is the standard load-bearing equipment of the USCM. It consists of a modular belt with various clips. This version is for the powerful Unica autorevolver, along with five small pouches for speedloaders. This one is aging poorly, and seems to be surplus equipment. It's stamped '3rd 'Dust Raiders' Battalion'."
+	desc = "The M276 is the standard load-bearing equipment of the USCM. It consists of a modular belt with various clips. This version is for the powerful Unica autorevolver, along with five small pouches for speedloaders. It was included with the mail-order USCM edition of the Unica autorevolver in the early 2170s."
 	icon_state = "cmateba_holster"
 	item_state = "marinebelt"
 	icon = 'icons/obj/items/clothing/belts/belts_by_map/snow.dmi'
@@ -2093,7 +2110,7 @@
 			"icon_y" = -3))
 
 /obj/item/storage/belt/gun/mateba/full/fill_preset_inventory()
-	handle_item_insertion(new /obj/item/weapon/gun/revolver/mateba())
+	handle_item_insertion(new /obj/item/weapon/gun/revolver/mateba/impact())
 	new /obj/item/ammo_magazine/revolver/mateba/highimpact(src)
 	new /obj/item/ammo_magazine/revolver/mateba/highimpact(src)
 	new /obj/item/ammo_magazine/revolver/mateba/highimpact(src)
@@ -2101,11 +2118,12 @@
 	new /obj/item/ammo_magazine/revolver/mateba/highimpact/ap(src)
 
 /obj/item/storage/belt/gun/mateba/cmateba
-	name = "\improper M276 pattern Unica holster rig"
-	desc = "The M276 is the standard load-bearing equipment of the USCM. It consists of a modular belt with various clips. This version is for the powerful Unica autorevolver, along with five small pouches for speedloaders. It was included with the mail-order USCM edition of the Unica autorevolver in the early 2170s."
 	icon_state = "cmateba_holster"
 	item_state = "marinebelt"
 	flags_atom = FPRINT // has gamemode skin
+
+/obj/item/storage/belt/gun/mateba/cmateba/black
+	flags_atom = NO_NAME_OVERRIDE|NO_GAMEMODE_SKIN
 
 /obj/item/storage/belt/gun/mateba/cmateba/full/fill_preset_inventory()
 	handle_item_insertion(new /obj/item/weapon/gun/revolver/mateba/cmateba())
@@ -2115,10 +2133,23 @@
 	new /obj/item/ammo_magazine/revolver/mateba/highimpact/ap(src)
 	new /obj/item/ammo_magazine/revolver/mateba/highimpact/ap(src)
 
-/obj/item/storage/belt/gun/mateba/cmateba/special
-
 /obj/item/storage/belt/gun/mateba/cmateba/special/fill_preset_inventory()
 	handle_item_insertion(new /obj/item/weapon/gun/revolver/mateba/special())
+	new /obj/item/ammo_magazine/revolver/mateba/highimpact(src)
+	new /obj/item/ammo_magazine/revolver/mateba/highimpact(src)
+	new /obj/item/ammo_magazine/revolver/mateba/highimpact(src)
+	new /obj/item/ammo_magazine/revolver/mateba/highimpact/ap(src)
+	new /obj/item/ammo_magazine/revolver/mateba/highimpact/ap(src)
+
+/obj/item/storage/belt/gun/mateba/mtr6m
+	name = "\improper M276 pattern 2006M holster rig"
+	desc = "The M276 is the standard load-bearing equipment of the USCM. It consists of a modular belt with various clips. This version is for the powerful Unica autorevolver, along with five small pouches for speedloaders. It was included with the mail-order USCM edition of the Spearhead 2006m autorevolver in the early 2170s."
+	icon_state = "cmateba_holster"
+	item_state = "marinebelt"
+	flags_atom = FPRINT // has gamemode skin
+
+/obj/item/storage/belt/gun/mateba/mtr6m/full/fill_preset_inventory()
+	handle_item_insertion(new /obj/item/weapon/gun/revolver/mateba/mtr6m())
 	new /obj/item/ammo_magazine/revolver/mateba/highimpact(src)
 	new /obj/item/ammo_magazine/revolver/mateba/highimpact(src)
 	new /obj/item/ammo_magazine/revolver/mateba/highimpact(src)
@@ -2142,6 +2173,44 @@
 
 /obj/item/storage/belt/gun/mateba/council/full/fill_preset_inventory()
 	handle_item_insertion(new /obj/item/weapon/gun/revolver/mateba/silver())
+	new /obj/item/ammo_magazine/revolver/mateba/highimpact(src)
+	new /obj/item/ammo_magazine/revolver/mateba/highimpact(src)
+	new /obj/item/ammo_magazine/revolver/mateba/highimpact(src)
+	new /obj/item/ammo_magazine/revolver/mateba/highimpact/ap(src)
+	new /obj/item/ammo_magazine/revolver/mateba/highimpact/ap(src)
+
+/obj/item/storage/belt/gun/mateba/council/full_golden/fill_preset_inventory()
+	handle_item_insertion(new /obj/item/weapon/gun/revolver/mateba/golden())
+	new /obj/item/ammo_magazine/revolver/mateba/highimpact(src)
+	new /obj/item/ammo_magazine/revolver/mateba/highimpact(src)
+	new /obj/item/ammo_magazine/revolver/mateba/highimpact(src)
+	new /obj/item/ammo_magazine/revolver/mateba/highimpact/ap(src)
+	new /obj/item/ammo_magazine/revolver/mateba/highimpact/ap(src)
+
+/obj/item/storage/belt/gun/mateba/council/mtr6m
+	name = "colonel's M276 pattern 2006M holster rig"
+	desc = "The M276 is the standard load-bearing equipment of the USCM. \
+	It consists of a modular belt with various clips. This version is for the powerful 2006M autorevolver, \
+	along with five small pouches for speedloaders. This specific one is tinted black and engraved with gold, heavily customized for a high-ranking official."
+
+/obj/item/storage/belt/gun/mateba/council/mtr6m/full/fill_preset_inventory()
+	handle_item_insertion(new /obj/item/weapon/gun/revolver/mateba/mtr6m/golden())
+	new /obj/item/ammo_magazine/revolver/mateba/highimpact(src)
+	new /obj/item/ammo_magazine/revolver/mateba/highimpact(src)
+	new /obj/item/ammo_magazine/revolver/mateba/highimpact(src)
+	new /obj/item/ammo_magazine/revolver/mateba/highimpact/ap(src)
+	new /obj/item/ammo_magazine/revolver/mateba/highimpact/ap(src)
+
+/obj/item/storage/belt/gun/mateba/council/mtr6m/full_silver/fill_preset_inventory()
+	handle_item_insertion(new /obj/item/weapon/gun/revolver/mateba/mtr6m/silver())
+	new /obj/item/ammo_magazine/revolver/mateba/highimpact(src)
+	new /obj/item/ammo_magazine/revolver/mateba/highimpact(src)
+	new /obj/item/ammo_magazine/revolver/mateba/highimpact(src)
+	new /obj/item/ammo_magazine/revolver/mateba/highimpact/ap(src)
+	new /obj/item/ammo_magazine/revolver/mateba/highimpact/ap(src)
+
+/obj/item/storage/belt/gun/mateba/council/mtr6m/full_black/fill_preset_inventory()
+	handle_item_insertion(new /obj/item/weapon/gun/revolver/mateba/mtr6m/golden/black_handle())
 	new /obj/item/ammo_magazine/revolver/mateba/highimpact(src)
 	new /obj/item/ammo_magazine/revolver/mateba/highimpact(src)
 	new /obj/item/ammo_magazine/revolver/mateba/highimpact(src)
@@ -2716,6 +2785,7 @@
 		/obj/item/ammo_magazine/pistol,
 		/obj/item/ammo_magazine/revolver,
 		/obj/item/ammo_magazine/handful,
+		/obj/item/ammo_magazine/smg/nailgun,
 	)
 	bypass_w_limit = list(
 		/obj/item/tool/shovel/etool,
