@@ -1584,6 +1584,13 @@
 	},
 /turf/open/floor/hybrisa/engineership/engineer_floor9,
 /area/lv759/indoors/derelict_ship)
+"aei" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "W"
+	},
+/obj/effect/landmark/monkey_spawn,
+/turf/open/floor/almayer/research/containment/entrance/east,
+/area/lv759/indoors/wy_research_complex/xenobiology)
 "aej" = (
 /obj/structure/platform_decoration/metal/hybrisa/engineer_corner/north,
 /obj/effect/decal/hybrisa/engineership_corners,
@@ -18951,7 +18958,7 @@
 /area/lv759/indoors/wy_research_complex/head_research_office)
 "bTP" = (
 /obj/structure/bed/roller/hospital,
-/turf/open/floor/almayer/research/containment/corner_var1/east,
+/turf/open/floor/almayer/research/containment/corner/west,
 /area/lv759/indoors/wy_research_complex/mainlabs)
 "bTR" = (
 /obj/structure/platform/metal/almayer,
@@ -47140,7 +47147,7 @@
 	pixel_y = 1
 	},
 /obj/effect/landmark/monkey_spawn,
-/turf/open/floor/almayer/research/containment/floor2/north,
+/turf/open/floor/almayer/research/containment/floor2,
 /area/lv759/indoors/wy_research_complex/xenobiology)
 "gbp" = (
 /obj/structure/largecrate/random/case/small,
@@ -61106,7 +61113,7 @@
 	name = "Mounted Flash";
 	pixel_y = 30
 	},
-/turf/open/floor/almayer/research/containment/corner_var1/containment_corner_variant_2,
+/turf/open/floor/almayer/research/containment/corner,
 /area/lv759/indoors/wy_research_complex/xenobiology)
 "igX" = (
 /obj/structure/machinery/light/blue{
@@ -63902,7 +63909,7 @@
 	dir = 4
 	},
 /obj/effect/landmark/monkey_spawn,
-/turf/open/floor/almayer/research/containment/corner_var1/east,
+/turf/open/floor/almayer/research/containment/corner/west,
 /area/lv759/indoors/wy_research_complex/xenobiology)
 "iBo" = (
 /obj/effect/decal/warning_stripes{
@@ -80607,7 +80614,7 @@
 	icon_state = "mgibbl4"
 	},
 /obj/item/alien_embryo,
-/turf/open/floor/almayer/research/containment/floor2/north,
+/turf/open/floor/almayer/research/containment/floor1,
 /area/lv759/indoors/wy_research_complex/xenobiology)
 "lcf" = (
 /obj/structure/prop/invuln/lattice_prop{
@@ -112446,7 +112453,7 @@
 /obj/structure/machinery/light/small/blue{
 	dir = 1
 	},
-/turf/open/floor/almayer/research/containment/corner_var1/north,
+/turf/open/floor/almayer/research/containment/corner,
 /area/lv759/indoors/wy_research_complex/mainlabs)
 "pPl" = (
 /obj/effect/decal/hybrisa/dirt,
@@ -112727,7 +112734,7 @@
 /area/lv759/indoors/caves/south_east_caves)
 "pRp" = (
 /obj/effect/landmark/monkey_spawn,
-/turf/open/floor/almayer/research/containment/corner_var1/east,
+/turf/open/floor/almayer/research/containment/corner_var1/north,
 /area/lv759/indoors/wy_research_complex/xenobiology)
 "pRr" = (
 /turf/closed/wall/hybrisa/colony/hospital,
@@ -113956,7 +113963,7 @@
 /obj/structure/bed/roller/hospital_empty/bigrollerempty{
 	icon_state = "bigrollerempty_up"
 	},
-/turf/open/floor/almayer/research/containment/corner_var1/east,
+/turf/open/floor/almayer/research/containment/corner/west,
 /area/lv759/indoors/wy_research_complex/mainlabs)
 "qbH" = (
 /obj/effect/decal/warning_stripes{
@@ -115660,7 +115667,7 @@
 /obj/effect/decal/cleanable/blood,
 /obj/structure/bed/roller/hospital/bloody,
 /obj/structure/machinery/light/double/blue,
-/turf/open/floor/almayer/research/containment/floor2/north,
+/turf/open/floor/almayer/research/containment/floor2,
 /area/lv759/indoors/wy_research_complex/xenobiology)
 "qpK" = (
 /obj/structure/machinery/door/airlock/multi_tile/hybrisa/generic/autoname,
@@ -119513,7 +119520,7 @@
 /obj/structure/sink{
 	pixel_y = 24
 	},
-/turf/open/floor/almayer/research/containment/corner_var1/east,
+/turf/open/floor/almayer/research/containment/corner/west,
 /area/lv759/indoors/wy_research_complex/xenobiology)
 "qTM" = (
 /obj/structure/pipes/standard/simple/hidden/dark{
@@ -128240,7 +128247,7 @@
 /area/lv759/indoors/caves/central_caves)
 "shw" = (
 /obj/effect/landmark/monkey_spawn,
-/turf/open/floor/almayer/research/containment/corner_var2,
+/turf/open/floor/almayer/research/containment/corner,
 /area/lv759/indoors/wy_research_complex/xenobiology)
 "shB" = (
 /obj/structure/machinery/power/apc/no_power/north,
@@ -137752,7 +137759,7 @@
 /area/lv759/indoors/caves/south_caves)
 "tAV" = (
 /obj/effect/landmark/monkey_spawn,
-/turf/open/floor/almayer/research/containment/floor2/north,
+/turf/open/floor/almayer/research/containment/floor2,
 /area/lv759/indoors/wy_research_complex/mainlabs)
 "tAX" = (
 /obj/effect/decal/warning_stripes{
@@ -138942,7 +138949,7 @@
 	},
 /obj/item/prop/alien/hugger,
 /obj/effect/landmark/monkey_spawn,
-/turf/open/floor/almayer/research/containment/floor2/north,
+/turf/open/floor/almayer/research/containment/floor2,
 /area/lv759/indoors/wy_research_complex/xenobiology)
 "tLx" = (
 /turf/open/floor/hybrisa/tile/tilegrey,
@@ -139187,7 +139194,7 @@
 	pixel_y = 19
 	},
 /obj/effect/landmark/monkey_spawn,
-/turf/open/floor/almayer/research/containment/floor2/north,
+/turf/open/floor/almayer/research/containment/floor2,
 /area/lv759/indoors/wy_research_complex/mainlabs)
 "tNI" = (
 /obj/structure/largecrate/random/mini/small_case,
@@ -152343,7 +152350,7 @@
 	pixel_y = 5
 	},
 /obj/effect/landmark/objective_landmark/science,
-/turf/open/floor/almayer/research/containment/corner/north,
+/turf/open/floor/almayer/research/containment/corner_var2/north,
 /area/lv759/indoors/wy_research_complex/xenobiology)
 "vKu" = (
 /obj/structure/blocker/forcefield/vehicles,
@@ -165739,7 +165746,7 @@
 	icon_state = "W"
 	},
 /obj/effect/landmark/monkey_spawn,
-/turf/open/floor/almayer/research/containment/corner_var1/containment_corner_variant_2,
+/turf/open/floor/almayer/research/containment/corner,
 /area/lv759/indoors/wy_research_complex/xenobiology)
 "xJn" = (
 /obj/item/paper/crumpled{
@@ -168626,7 +168633,7 @@
 	icon_state = "S"
 	},
 /obj/effect/landmark/monkey_spawn,
-/turf/open/floor/almayer/research/containment/floor2/north,
+/turf/open/floor/almayer/research/containment/floor2,
 /area/lv759/indoors/wy_research_complex/xenobiology)
 "yfU" = (
 /obj/structure/roof/hybrisa/lattice_prop/lattice_6{
@@ -180016,7 +180023,7 @@ nRN
 nRN
 xJj
 cJg
-qQP
+aei
 qQP
 jRH
 nRN
